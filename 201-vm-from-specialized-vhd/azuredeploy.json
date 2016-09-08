@@ -2,6 +2,20 @@
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
+    "vmName": {
+      "type": "string",
+      "metadata": {
+        "group": "basics",
+        "description": "Name of the VM"
+      }
+    },
+    "vmSize": {
+      "type": "string",
+      "defaultValue": "Standard_D2",
+      "metadata": {
+        "description": "Size of the VM"
+      }
+    },
     "osDiskVhdUri": {
       "type": "string",
       "metadata": {
@@ -16,19 +30,6 @@
       ],
       "metadata": {
         "description": "Type of OS on the existing vhd"
-      }
-    },
-    "vmSize": {
-      "type": "string",
-      "defaultValue": "Standard_D2",
-      "metadata": {
-        "description": "Size of the VM"
-      }
-    },
-    "vmName": {
-      "type": "string",
-      "metadata": {
-        "description": "Name of the VM"
       }
     }
   },
