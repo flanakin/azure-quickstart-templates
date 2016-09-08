@@ -5,7 +5,15 @@
     "vmName": {
       "type": "string",
       "metadata": {
+        "group": "basics",
         "description": "Name of the VM"
+      }
+    },
+    "vmSize": {
+      "type": "string",
+      "metadata": {
+        "group": "Virtual machine",
+        "description": "Size of the VM"
       }
     },
     "osType": {
@@ -15,42 +23,42 @@
         "Linux"
       ],
       "metadata": {
+        "group": "Virtual machine",
         "description": "Type of OS on the existing vhd"
       }
     },
     "osDiskVhdUri": {
       "type": "string",
       "metadata": {
-        "description": "Uri of the existing VHD in ARM standard or premium storage"
-      }
-    },
-    "vmSize": {
-      "type": "string",
-      "metadata": {
-        "description": "Size of the VM"
+        "group": "Virtual machine",
+        "description": "URI of the existing VHD in ARM standard or premium storage"
       }
     },
     "existingVirtualNetworkName": {
       "type": "string",
       "metadata": {
+        "group": "Network",
         "description": "Name of the existing VNET"
       }
     },
     "existingVirtualNetworkResourceGroup": {
       "type": "string",
       "metadata": {
+        "group": "Network",
         "description": "Name of the existing VNET resource group"
       }
     },
     "subnetName": {
       "type": "string",
       "metadata": {
+        "group": "Network",
         "description": "Name of the subnet in the virtual network you want to use"
       }
     },
     "dnsNameForPublicIP": {
       "type": "string",
       "metadata": {
+        "group": "Network",
         "description": "Unique DNS Name for the Public IP used to access the Virtual Machine."
       }
     }
