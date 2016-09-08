@@ -2,40 +2,46 @@
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "customVmName": {
+    "vmName": {
       "type": "string",
       "metadata": {
+        "group": "basics",
         "description": "This is the name of the your VM"
-      }
-    },
-    "userImageStorageAccountName": {
-      "type": "string",
-      "metadata": {
-        "description": "This is the name of the your storage account"
-      }
-    },
-    "osDiskVhdUri": {
-      "type": "string",
-      "metadata": {
-        "description": "Uri of the your user image"
-      }
-    },
-    "dnsLabelPrefix": {
-      "type": "string",
-      "metadata": {
-        "description": "DNS Label for the Public IP. Must be lowercase. It should match with the following regular expression: ^[a-z][a-z0-9-]{1,61}[a-z0-9]$ or it will raise an error."
       }
     },
     "adminUserName": {
       "type": "string",
       "metadata": {
+        "group": "basics",
         "description": "User Name for the Virtual Machine"
       }
     },
     "adminPassword": {
       "type": "securestring",
       "metadata": {
+        "group": "basics",
         "description": "Password for the Virtual Machine"
+      }
+    },
+    "vmSize": {
+      "type": "string",
+      "metadata": {
+        "group": "Virtual machine",
+        "description": "This is the size of your VM"
+      }
+    },
+    "userImageStorageAccountName": {
+      "type": "string",
+      "metadata": {
+        "group": "Virtual machine",
+        "description": "This is the name of the your storage account"
+      }
+    },
+    "osDiskVhdUri": {
+      "type": "string",
+      "metadata": {
+        "group": "Virtual machine",
+        "description": "Uri of the your user image"
       }
     },
     "osType": {
@@ -45,19 +51,15 @@
         "Linux"
       ],
       "metadata": {
+        "group": "Virtual machine",
         "description": "This is the OS that your VM will be running"
-      }
-    },
-    "vmSize": {
-      "type": "string",
-      "metadata": {
-        "description": "This is the size of your VM"
       }
     },
     "newOrExistingVnet": {
       "allowedValues": [ "new", "existing" ],
       "type": "string",
       "metadata": {
+        "group": "Network",
         "description":  "Select if this template needs a new VNet or will reference an existing VNet"
       }
     },
@@ -65,6 +67,7 @@
       "type": "string",
       "defaultValue": "",
       "metadata": {
+        "group": "Network",
         "description": "New or Existing VNet Name"
       }
     },
@@ -72,14 +75,22 @@
       "type": "string",
       "defaultValue": "Subnet1",
       "metadata": {
+        "group": "Network",
         "description": "Subnet Name"
+      }
+    },
+    "dnsLabelPrefix": {
+      "type": "string",
+      "metadata": {
+        "group": "Network",
+        "description": "DNS Label for the Public IP. Must be lowercase. It should match with the following regular expression: ^[a-z][a-z0-9-]{1,61}[a-z0-9]$ or it will raise an error."
       }
     }
   },
   "variables": {
     "publicIPAddressName": "userImagePublicIP",
-    "vmName": "[parameters('customVmName')]",
-    "nicName": "[concat(parameters('customVmName'),'Nic')]",
+    "vmName": "[parameters('vmName')]",
+    "nicName": "[concat(parameters('vmName'),'Nic')]",
     "publicIPAddressType": "Dynamic",
     "apiVersion": "2015-06-15",
     "templatelink": "[concat('https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-from-user-image/',parameters('newOrExistingVnet'),'vnet.json')]"
