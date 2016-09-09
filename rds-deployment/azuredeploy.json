@@ -27,16 +27,16 @@
         }
       },
       "imageSKU": {
-      "type": "string",
-      "allowedValues": [
-        "2012-R2-Datacenter",
-        "Windows-Server-Technical-Preview"
-      ],
-      "metadata": {
-        "description": "Windows server SKU"
-      },
-      "defaultValue": "Windows-Server-Technical-Preview"
-    },
+          "type": "string",
+          "allowedValues": [
+            "2012-R2-Datacenter",
+            "Windows-Server-Technical-Preview"
+          ],
+          "metadata": {
+            "description": "Windows server SKU"
+          },
+          "defaultValue": "Windows-Server-Technical-Preview"
+        },
         "numberOfRdshInstances": {
             "type": "int",
             "defaultValue": 2,
